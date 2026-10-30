@@ -684,9 +684,10 @@ fn bar_main(width: u32, height: u32) -> io::Result<()> {
                                         bar.spawn("cosmic-files".to_string());
                                     }
                                 }
-                                orbclient::K_T => {
+                                // Bun OS (Omarchy keymap): Super+Return and Super+T open the default terminal.
+                                orbclient::K_T | orbclient::K_ENTER => {
                                     if key_event.pressed {
-                                        bar.spawn("cosmic-term".to_string());
+                                        bar.spawn(theme::terminal());
                                     }
                                 }
                                 _ => (),
